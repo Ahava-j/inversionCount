@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <limits> 
 #include "inversions.h"
 
 using namespace std;
@@ -7,6 +8,7 @@ using namespace std;
 int main(){
     const string RESET = "\033[0m";
     const string MAGENTA = "\033[35m";
+    const string BLUE = "\033[34m";
 
     cout << MAGENTA;
     cout << "Counting Inversions";
@@ -38,21 +40,32 @@ int main(){
     // now prompt user for the actual data to put in vector 
     vector<int> myArr(numEle);
     cout << "Enter " << numEle << " elements: ";
-    for(int i = 0; i < numEle; i++){
-        cin >> myArr[i];
-    }
     cout << endl;
+    for(int i = 0; i < numEle; i++){
+        while (!(cin >> myArr[i])) {
+            cin.clear(); // clear error flag
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // delete input
+            cerr << "Wrong input. Enter a number: " << endl;
+        }
+    }
 
+    cout << endl;
     // show the user what they input
-    cout << "You entered: ";
+    cout << "You entered: " << endl;
     for(int i = 0; i < numEle; i++){
         cout << myArr[i] << " ";
     }
     cout << endl;
+    cout << endl;
    
     // output text to teach user how the program starts
+    cout << BLUE;
     cout <<"The inversion count algorithm starts by sending the entire array to be checked for any inversions" << endl;
-    cout << "Total number of inversions: " << inversionCount(myArr) << endl;
+    cout << endl;
+    cout << RESET;
+
+    // print totals
+    inversionCount(myArr);
 
     return 0;
 }

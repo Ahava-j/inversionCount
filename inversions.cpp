@@ -9,6 +9,7 @@ using std::vector;
 // ANSI escape codes for coloring
 const std::string RESET = "\033[0m";
 const std::string MAGENTA = "\033[35m";
+const std::string BLUE = "\033[34m";
 
 // This function prints array in color 
 void printArray(const vector<int>& arr, int lIndex, int rIndex) {
@@ -47,7 +48,9 @@ int inversionRecursive(vector<int>& myArr, int lIndex, int rIndex){
     }
 
     int middleIndex = lIndex + (rIndex - lIndex) / 2;
+    cout << BLUE;
     cout << "Dividing array from index " << lIndex << " to " << rIndex << " at middle index " << middleIndex << "." << endl;
+    cout  << RESET;
     printArray(myArr, lIndex, rIndex);
 
     int leftSorted = inversionRecursive(myArr, lIndex, middleIndex);
@@ -72,7 +75,9 @@ int inversionRecursive(vector<int>& myArr, int lIndex, int rIndex){
  * @return int The number of inversions found during the combination.
  */
 int inversionCombine(vector<int>& myArr, int lIndex, int middleIndex, int rIndex){
+    cout << BLUE;
     cout << "Combining arrays from index " << lIndex << " to " << middleIndex << " and " << (middleIndex + 1) << " to " << rIndex << "." << endl;
+    cout << RESET;
 
     int i = 0;
     int j = 0;
