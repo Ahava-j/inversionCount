@@ -12,8 +12,8 @@ const std::string MAGENTA = "\033[35m";
 
 // This function prints array in color 
 void printArray(const vector<int>& arr, int lIndex, int rIndex) {
-    for (int i = 0; i < arr.size(); ++i) {
-        if (i >= lIndex && i <= rIndex) {
+    for(int i = 0; i < arr.size(); ++i){
+        if(i >= lIndex && i <= rIndex){
             cout << MAGENTA << arr[i] << " " << RESET;
         } else {
             cout << arr[i] << " ";
