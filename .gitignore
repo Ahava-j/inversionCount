@@ -1,0 +1,26 @@
+# Ignore compiled binary files
+*.o
+*.out
+*.exe
+*.obj
+*.dll
+*.so
+*.a
+*.lib
+
+# Ignore debug and log files
+*.log
+*.tmp
+*.swp
+.DS_Store
+
+# Ignore build and temporary directories
+/build/
+bin/
+cache/
+*.dSYM/
+
+# Ignore editor-specific files
+.vscode/
+.idea/
+*.sublime-workspace
